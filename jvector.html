@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>jVectorMap demo</title>
+  <link rel="stylesheet" href="jquery-jvectormap-2.0.5.css" type="text/css" media="screen"/>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+  <script src="jquery-jvectormap-2.0.5.min.js"></script>
+  <script src="jvector/tests/assets/jquery-jvectormap-us-lcc-en.js"></script>
+</head>
+<body>
+  <div id="map" style="width: 600px; height: 400px"></div>
+  <script>
+   $(function(){
+  new jvm.MultiMap({
+    container: $('#map'),
+    maxLevel: 1,
+    main: {
+      map: 'us_lcc_en'
+    },
+    mapUrlByCode: function(code, multiMap){
+      return 'jvector/tests/assets/us/jquery-jvectormap-data-'+
+             code.toLowerCase()+'-'+
+             multiMap.defaultProjection+'-en.js';
+    }
+  });
+});
+  </script>
+</body>
+</html>
