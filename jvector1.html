@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>jVectorMap1 demo</title>
+  <link rel="stylesheet" href="jquery-jvectormap-2.0.5.css" type="text/css" media="screen"/>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+  <script src="jquery-jvectormap-2.0.5.min.js"></script>
+  <script src="jvector/tests/assets/jquery-jvectormap-us-aea-en.js"></script>
+</head>
+<body>
+  <div id="map" style="margin-left:400px; margin-top: 100px;  width: 600px; height: 400px"></div>
+  <script>
+   $(function(){
+    var test = 7;
+  new jvm.Map({
+    map: 'us_aea_en',
+    container: $('#map'),
+    markerStyle: {
+        initial: {
+        fill: '#F8E23B',
+        stroke: '#383f47'
+      }
+    },
+     markers: [
+      {latLng: [33.00, -100.45], name: test + ' stores'},
+    ],
+  
+    regionLabelStyle: {
+      initial: {
+        fill: '#B90E32'
+      },
+      hover: {
+        fill: 'black'
+      }
+    },
+    
+    labels: {
+      regions: {
+        render: function(code){
+          var doNotShow = ['US-RI', 'US-DC', 'US-DE', 'US-MD'];
+
+          if (doNotShow.indexOf(code) === -1) {
+            return code.split('-')[1];
+          }
+        },
+        offsets: function(code){
+          return {
+            'CA': [-10, 10],
+            'ID': [0, 40],
+            'OK': [25, 0],
+            'LA': [-20, 0],
+            'FL': [45, 0],
+            'KY': [10, 5],
+            'VA': [15, 5],
+            'MI': [30, 30],
+            'AK': [50, -25],
+            'HI': [25, 50]
+          }[code.split('-')[1]];
+        }
+      }
+    }
+
+  });
+});
+  </script>
+</body>
+</html>
