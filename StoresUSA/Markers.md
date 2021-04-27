@@ -1,7 +1,7 @@
 # Maps-HTML
  
 Markers US states:
- 	  {latLng: [32.6010112,-86.6807365], name:'Alabama'},
+ 	{latLng: [32.6010112,-86.6807365], name:'Alabama'},
       {latLng: [61.3025006,-158.7750198], name:'Alaska'},
       {latLng: [34.1682185,-111.930907], name:'Arizona'},
       {latLng: [34.7519275,-92.1313784], name:'Arkansas'},
